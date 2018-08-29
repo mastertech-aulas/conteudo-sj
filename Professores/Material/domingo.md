@@ -62,6 +62,61 @@ print('Hello World')
 ```
 
 ### Compilação x Interpretação
+Ainda que uma linguagem de programação seja um meio intermediário entre o programador e o computador, ela em seu estado original não é adequada para as operações de baixo nível do sistema. Para que ela possa ser utilizada, é necessário converter o código escrito pelo programador em linguagem de máquina. Esse processo pode ser feito de duas formas distintas: compilação ou interpretação.
 
+No processo de compilação, o código-fonte é convertido um arquivo executável que contém as instruções de baixo nível necessárias para execução do programa pelo computador. Note que não existe um processo simples para "descompilar" o programa, de modo que ter o arquivo executável não nos dá acesso ao código-fonte. Os programas usados em desktop normalmente são compilados.
+
+No processo de interpretação, o código-fonte é convertido em instruções para o computador em tempo real. Isso permite um maior dinamismo para o programador enquanto ele trabalha, visto que ele pode ver de forma imediata as mudanças que ele faz no programa. Por outro lado, a velocidade de execução do programa tende a ser menor, visto que a cada execução é necessário fazer a conversão do código novamente para instruções de máquina. Vale notar que não existe um arquivo executável, então o programa é distribuído no formato de código-fonte.
 
 ## Javascript (1 hora)
+
+### Variáveis
+Ao programar, temos a possibilidade de armazenar e realizar operações com valores já armazenanados na memória do programa. Uma variável é um espaço na memória que armazena um valor.
+
+No caso do Javascript, a memória é individual para cada página, de forma que duas páginas exibidas em abas diferentes não compartilham valores de memória. Ao recarregar a página, limpa-se a memória e reinicia-se o script.
+
+As variáveis são criadas utilizando a palavra chave `let`. O nome da variável é definido livremente pelo programador, desde que siga-se algumas regras:
+
+- Não pode conter caracteres especiais, como acentos, cedilhas ou til
+- Não pode conter espaços
+- Não pode começar com um número, mas pode conter números em outras posições
+
+```
+let salario;
+```
+
+Não podemos declarar uma variável com o mesmo nome de outra variável, pois isso gera um erro de execução.
+
+> Pode-se usar nomes repetidos para variáveis desde que elas não estejam no mesmo escopo, porém é melhor omitir essa informação nesse momento.
+
+Perceba que toda linha é finalizada com um ponto-e-vírgula, que indica que a instrução finalizou.
+
+> Finalizar instruções com ponto-e-vírgula é um requisito do Javascript, ainda que este possua um mecanismo que permita que ele tenha um certo nível de tolerâncias à essa omissão.
+
+### Tipos de variáveis
+
+Para armazenar um valor em uma variável, usamos o operador `=`.
+
+```
+let salario = 1000;
+```
+
+No Javascript, o tipo da variável é definido pelo valor que é atribuído à ela. Se alteramos o valor da variável, é possível também alterar seu tipo
+
+| TIPO    | DESCRIÇÃO  |
+| --------|----------- |
+| number  | valores numéricos, inteiro ou decimal |
+| string  | texto |
+| boolean | verdadeiro ou falso|
+| object  | armazena diversos valores organizados em pares de chave e valor|
+| array  | armazena diversos valores organizados por posição|
+
+> Array não é tecnicamente um tipo de variável, visto que o Javascript o identifica simplesmente como `object`. Porém, incluímos array nessa tabela por motivos didáticos.
+
+```
+let salario = 1;
+let frase = 'Esse é um texto';
+let estaFrio = false;
+```
+
+> Apesar de citarmos os objetos e vetores entre os tipos de variável, sugerimos que eles não sejam exemplificados nem aprofundados nesse momento da aula.
