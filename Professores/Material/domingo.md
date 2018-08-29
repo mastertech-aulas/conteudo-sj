@@ -120,3 +120,38 @@ let estaFrio = false;
 ```
 
 > Apesar de citarmos os objetos e vetores entre os tipos de variável, sugerimos que eles não sejam exemplificados nem aprofundados nesse momento da aula.
+
+### Operações
+#### Operadores aritméticos
+| Operador | Descrição |
+|----------|---------- |
+| = | atribui um valor à uma variável |
+| + | adição ou concatenação, no caso de strings |
+| - | subtração |
+| * | multiplicação |
+| / | divisão |
+| ** | potenciação |
+| ++ | incremento |
+| - - | decremento |
+
+
+```
+let salario = 1000;
+let aumento = 500;
+
+console.log(salario + aumento);
+```
+
+> É importante esclarecer que uma operação não altera o valor da variável a não ser que seja utilizado o operador de atribuição `=`. Uma excessão à essa regra são os operadores de incremento.
+
+#### Operadores lógicos
+Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`;
+| Operador | Descrição |
+|----------|---------- |
+| == | igual |
+| != | diferente |
+| ! | negação |
+| > | maior |
+| < | menor |
+| >= | maior ou igual |
+| <= | menor ou igual |
