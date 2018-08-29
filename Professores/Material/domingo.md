@@ -1,48 +1,67 @@
-Lógica de programação:
+# Material de Apoio - Domingo
 
-Algoritmos;
-- O que é um algoritmo:
-    Um algoritmo é uma sequência de passos para realizar uma tarefa. Essa sequência deve ser correta, completa e clara.
+### Objetivos
 
-    A ideia de sequência é que os passos do algoritmo tem ordem para serem executados, e essa ordem deve ser preservada.
+## Introdução a programação e a Lógica
 
-    Correta significa que a sequência de passos deve, com certeza, atingir o objetivo. Um algoritmo é considerado correto se, após o último passo ser executado, chega-se ao resultado esperado.
+### O que é um algoritmo
+Um algoritmo é uma sequência de passos para realizar uma tarefa. Essa sequência deve ser correta, completa e clara.
 
-    Completa significa que a sequência não deve ter nenhum passo faltando. Todas as informações e instruções para chegar ao objetivo devem estar no passo-a-passo. Quem lê e executa os passos não deve ter que "inferir" nenhum passo, nem preencher nenhuma lacuna.
+A ideia de sequência é que os passos do algoritmo tem ordem para serem executados, e essa ordem deve ser preservada.
 
-    Clara significa que não pode haver ambiguidade em nenhum dos passos. As informações e instruções devem estar descrita de uma maneira que não gere dúvidas: a natureza das informações deve ser específica e não pode haver duas maneiras distintas de executar uma instrução. Além disso, quem lê ou executa o algoritmo deve chegar ao resultado fazendo exatamente o que a sequência de passos define.
+Correta significa que a sequência de passos deve, com certeza, atingir o objetivo. Um algoritmo é considerado correto se, após o último passo ser executado, chega-se ao resultado esperado.
 
-- O que não é um algoritmo:
+Completa significa que a sequência não deve ter nenhum passo faltando. Todas as informações e instruções para chegar ao objetivo devem estar no passo-a-passo. Quem lê e executa os passos não deve ter que "inferir" nenhum passo, nem preencher nenhuma lacuna.
 
-    Normalmente, quando aprendemos sobre algoritmo, os exemplos dizem que é como uma "receita de bolo". Isso definitivamente não é verdade!
+Clara significa que não pode haver ambiguidade em nenhum dos passos. As informações e instruções devem estar descritas de uma maneira que não gerem dúvidas: a natureza das informações deve ser específica e não pode haver duas maneiras distintas de executar uma instrução. Além disso, quem lê ou executa o algoritmo deve chegar ao resultado fazendo exatamente o que a sequência de passos define.
 
-    A analogia é utilizada porque as receitas possuem um "modo de fazer" sequencial, orientado por passos, mas algumas considerações precisam ser feitas.
+> Normalmente, quando aprendemos sobre algoritmo, os exemplos dizem que é como uma "receita de bolo". Isso definitivamente não é verdade! A analogia é utilizada porque as receitas possuem um "modo de fazer" sequencial, orientado por passos, mas algumas considerações precisam ser feitas.
+Primeiro, as receitas não são claras: não existe padrão para as quantidades dos ingredientes. Uma xícara de chá não tem uma medida exata, assim como uma colher de sopa cheia não significa uma porção exata. Duas pessoas diferentes podem seguir a mesma receita com o material que possuem em casa e as quantidades não serão as mesmas. Além disso, passos como "bata as claras em neve" deixam ambiguidades: como? com qual instrumento? o que define "em neve"?
+Segundo, as receitas não são completas: instruções como "pré-aqueça o forno" não traz todas as informações necessárias. Por quanto tempo deve-se pré-aquecer o forno? A qual temperatura?
+Por fim, as receitas não são corretas pois existe um risco de seguir todos os passos, exatamente como descrito, na sequência, e não chegar ao resultado esperado.
 
-    Primeiro, as receitas não são claras: não existe padrão para as quantidades dos ingredientes. Uma xícara de chá não tem uma medida exata, assim como uma colher de sopa cheia não significa uma porção exata. Duas pessoas diferentes podem seguir a mesma receita com o material que possuem em casa e as quantidades não serão as mesmas. Além disso, passos como "bata as claras em neve" deixam ambiguidades: como? com qual instrumento? o que define "em neve"?
+### Níveis de Abstração
 
-    Segundo, as receitas não são completas: instruções como "pré-aqueça o forno" não traz todas as informações necessárias. Por quanto tempo deve-se pré-aquecer o forno? A qual temperatura?
+Para escrever um programa, é necessário utilizar uma linguagem que, ao mesmo tempo, seja compreendida pelo computador e pelo programador. Para que seja entendida pelo computador, essa linguagem necessita ter uma sintaxe precisa e instruções claras. Para que seja entendida pelo programador, é importante que ela tenha relação com a linguagem humana e seja de fácil compreensão.
 
-    Por fim, as receitas não são corretas. Existe um risco de seguir todos os passos, exatamente como descrito, na sequência, e não chegar ao resultado esperado.
+Por isso, as linguagens de programação possuem diferentes níveis de abstração, ou seja, o quão detalhadas são as instruções em relação as operações básicas que um computador pode realizar.
 
-- Nivel de abstração:
-    Na hora de escrever ou projetar um algoritmo, precisamos ter ideia de quem será o responsável pela sua execução para definir o nível de abstração das instruções. 
+Considere um algoritmo que ensina a trocar um pneu de um carro. Uma sequência de instruções como "pegue a chave de roda", "remova os parafusos da roda", "puxe a roda até que ela saia" parece suficiente. Entretanto, só seria útil para quem saber o que é uma chave de roda, e para quem sabe remover um parafuso.
 
-    Considere um algoritmo que ensina a trocar um pneu de um carro. O algoritmo tem a seguinte instrução: "Remova a roda". E se a pessoa que estiver executando o algoritmo não souber nenhuma maneira de fazer isso?
+Algumas pessoas precisariam de instruções mais exatas, como "encaixe a extremidade hexagonal da chave de roda no parafuso", "enquanto o parafuso não sair, gire a chave de roda no sentido anti-horário para desrosquear o parafuso".
 
-    Uma sequência mais detalhada de instruções, como "pegue a chave de roda", "remova os parafusos da roda", "puxe a roda até que ela saia" parece melhor descrita, e seria suficiente. Entretanto, só seria útil para quem saber o que é uma chave de roda, e para quem sabe remover um parafuso. Algumas pessoas precisariam de instruções mais exatas, como "encaixe a extremidade hexagonal da chave de roda no parafuso", "enquanto o parafuso não sair, gire a chave de roda no sentido anti-horário para desrosquear o parafuso".
+O primeiro algoritmo possui um maior nível de abstração em relação ao segundo algoritmo. Em um contexto computacional, uma linguagem de baixo nível necessita de instruções específicas de alocação do espaço de memória e algumas chamadas do sistema operacional para exibir um texto na tela. Por outro lado, ao usar uma linguagem de alto nível, o programador necessita apenas usar um simples comando de impressão.
 
-    Para alguém que já trocou um pneu antes, ou que já tenha conhecimento de como funciona o processo de substituir uma roda de carro, o algoritmo fica mais simples de escrever e, consequentemente, menor, embora os passos sejam os mesmos. A capacidade do responsável pela execução do algoritmo de abstrair informações é um fator importante no momento de planejar e construir um bom algoritmo.
+```
+;Hello World em Assembly
 
-Algoritmos feitos para o computador;
-- O que um computador pode fazer?
-    Isso depende!
+section     .text
+global      _start                              ;must be declared for linker (ld)
 
-    Os algoritmos escritos para computador são pensados de acordo com um paradigma de programação. Existem diversos paradigmas e vamos aprender sobre o paradigma procedural.
+_start:                                         ;tell linker entry point
 
-    Usando programação procedural, podemos criar e definir procedimentos que podem ser executados pelo computador, 
+    mov     edx,len                             ;message length
+    mov     ecx,msg                             ;message to write
+    mov     ebx,1                               ;file descriptor (stdout)
+    mov     eax,4                               ;system call number (sys_write)
+    int     0x80                                ;call kernel
 
-- Quais tipos de dados um computador conhece?
+    mov     eax,1                               ;system call number (sys_exit)
+    int     0x80                                ;call kernel
 
-Tomada de decisão: SE;
-Laços de repetição: WHILE;
-Resolução de problemas reais;
+section     .data
+
+msg     db  'Hello, world!',0xa                 ;our dear string
+len     equ $ - msg                             ;length of our dear string
+```
+
+```
+# Hello World em Python
+
+print('Hello World')
+```
+
+### Compilação x Interpretação
+
+
+## Javascript (1 hora)
