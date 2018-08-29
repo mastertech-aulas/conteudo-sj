@@ -13,12 +13,14 @@
 ### Redes e Protocolos
 O que acontece quando acessamos o Google? Como é a interação entre os diversos sistemas desde o momento em que digitamos a URL no navegador até o momento que temos a página exibida em nossa tela? 
 
-(
- - IP e DNS
- - Cliente x Servidor
- - Protocolos e Protocolo HTTP 
- - HTML, CSS e JS
-)
+Os computadores conseguem se comunicar porque estão interligados por redes - a ligação dessas redes umas às outras forma a Internet. Dentro da Internet, os computadores têm endereços específicos, que os identificam para a troca de dados, e mecanismos que permitem que a comunicação seja realizada de forma *transparente* ao usuário. Em informática, o conceito de transparente é o contrário do que podemos esperar: a Internet opera de forma transparente porque o usuário não vê nenhuma das etapas que acontecem até que os dados sejam acessados no seu computador.
+
+No cenário de aplicações Web (essas com páginas que você abre usando o navegador do seu computador), os computadores que se comunicam podem assumir o papel de *cliente* ou de *servidor*. O servidor é o computador que está disponibilizando um serviço, como os computadores do Google, do Facebook, da Mastertech disponibilizam as páginas para acesso. O cliente é quem consome o serviço, ou seja, quem acessa essas páginas para mostrar ao usuário.
+
+Para que cliente e servidor possam se comunicar de forma efetiva, é necessário que haja um *protocolo*. Um protocolo é um conjunto de regras e de formatos padronizados para os computadores se comunicarem. Um bom protocolo de comunicação define como e quando os computadores conversam entre si.
+O principal protocolo usado para a troca de dados na Web é o HTTP - *Hyper Text Transfer Protocol*. Hiper-texto é o nome dado aos textos contendo imagens, sons, vídeos e estilos, que são os dados que compõem uma página da Web. O Hiper-texto que será trocado entre os computadores é construído utilizando três linguagens principais: HTML, CSS e JavaScript.
+
+O HTML - *Hyper Text Markup Language* - é uma linguagem de marcação, e não de programação. Sua finalidade é determinar como os elementos da página serão estruturados, sua finalidade e conteúdo. Já o CSS - *Cascading StyleSheets* é uma linguagem de estilo para HTML, criada com a finalidade de organizar a formatação e o posicionamento dos itens definidos no HTML. O JavaScript é a linugagem de programação utilizada para criar interação dos itens com o usuário, realizar a primeira etapa de processamento dos dados da página e trocar dados pontuais com servidores durante a navegação.
 
 > Dica: Esse é o momento em que o aluno sai de uma atividade criativa (design thinking) e entra num contexto de aula tradicional. É importante aproveitar esse momento e despertar o interesse dele no tema.
 
