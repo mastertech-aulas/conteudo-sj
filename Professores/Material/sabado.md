@@ -1,7 +1,7 @@
 # Material de Apoio - Sábado
 
 ### Objetivos
-- Criar um entendimento fundamental de como funciona e quais tecnologias compõe a web moderna
+- Criar um entendimento fundamental de como funciona e quais tecnologias compõem a web moderna
 - Noções práticas de uso de linguagens de marcação e estilização
 - Capacidade de criar um site simples e publicá-lo
 - Direcionar o aluno para continuar os estudos por conta
@@ -32,19 +32,100 @@ Ao acessar o site pela primeira vez, seu computador faz o download do código do
 
 Se o servidor precisa executar algum código antes de entregar ou montar os arquivos para o browser, esse código é o back end. Note que o browser não consegue ver ou acessar o código de backend, visto que ele é completamente executado pelo servidor e o resultado dessa execução são os arquivos entregues para o cliente. Dessa forma, um arquivo HTML pode ser gerado dinamicamente através de dados armazenados no banco de dados, por exemplo, ao invés de ser um arquivo convencional imutável.
 
-## HTML
-É importante primeiro mostrar abertura e fechamento da tag de HTML - *div*, *p* e *h1-h6* são bons exemplos. Daí, já mostrar nas ferramentas de desenvolvedor uma página que tenha tags *p* ou *h1*, como o próprio github.com.
+## HTML (30min)
 
-Depois falar de tags que tem propriedades necessárias, como a tag *a* com o href. Dizer que uma propriedade está lá para configurar alguma característica da tag.
+O HTML é uma linguagem de marcação estruturada por *tags*. Cada tag de html corresponde a um elemento da página, com suas características e conteúdo.
 
-Depois falar de tags que não fecham, que são compostas somente pelas propriedades. O melhor exemplo é a tag *img*, e as tags *meta* de configuração do head do template padrão do visual studio.
+> O Visual Studio Code tem um autocomplete para html:5, que pode ser usado como o kickstart da aula. Algumas tags já vem construídas junto com a estrutura obrigatória.
 
-Com essa base, fechar a lista das principais tags - incluindo *form*, *input* e *button*, sempre mostrando exemplos usando as ferramentas de desenvolvedor, com páginas prontas.
+As tags são identificadas por seus nomes no momento da abertura. Para abrir uma tag, inserimos seu nome entre '<' e '>'. O fechamento da tag é composto pelos sinais de '<' e '>', com o nome da tag precedido por '/'. O conteúdo de um elemento HTML fica entre a abertura e o fechamento.
 
-Evite páginas muito complexas, como e-commerces ou o globoesporte, porque essas páginas são geradas com ferramentas e não costumam ter o HTML simples de interpretar.
+A estrutura mínima obrigatória para um documento HTML está descrita abaixo. Todas as outras tags devem ser criadas dentro do elemento **head**, caso sejam metadados e informações, ou dentro do **body** se forem conteúdo efetivo da página.
 
-## CSS I - Formatação geral
+```
+<html>
+    <head>
+    </head>
+    <body>
+    <body>
+</html>
+```
 
-## CSS II - Posicionamento e responsividade
+As principais tags básicas usadas em HTML são (em ordem alfabética):
 
-## Publicação
+- **a** : A tag de âncora serve para criar ligação com outras páginas ou com elementos em uma mesma página, através de links clicáveis.
+- **article** : Artigo.
+- **aside** : Barra lateral. Importante: a barra não fica por padrão na lateral, deve ser formatada para isso. A tag só dá significado a uma divisão da página que deve ser uma barra lateral.
+- **body** : O corpo da página. Dentro dele devem estar todos os elementos que compõem a estrutura de navegação.
+- **button** : Um botão clicável.
+- **code** : Identifica exemplos de código no conteúdo da página.
+- **div** : Cria uma divisão, não-semântica, na página. Serve para agrupar e organizar os elementos.
+- **footer** : O rodapé da página.
+- **form** : Um formulário para entrada de dados do usuário que está navegando. Normalmente composto de texto em geral, **inputs** e **buttons**.
+- **h1** até **h6** : Títulos e subtítulos. Os números de 1 a 6 definem os níveis, sendo 1 o título principal, externo, e 6 o subtítulo mais interno.
+- **head** : A cabeça da página. Nela são colocados os *metadados* da página, ou seja, elementos que não fazem parte do conteúdo, mas definem configurações e informações sobre o documento.
+- **header** : O cabeçalho da página. Importante: não confundir com **head**! O **header** fica dentro do **body**, definindo o cabeçalho visível da página.
+- **html** : Tag principal do documento. Todas as outras tags devem estar organizadas dentro dela.
+- **img** : Imagem. Precisa de um link para o arquivo de imagem e uma descrição.
+- **input** : Caixa de entrada de dados do usuário.
+- **li** : Item de lista. Deve estar dentro de uma lista do tipo **ol** ou **ul**.
+- **link** : Herói do jogo Legend Of Zelda. Não, ele não se chama Zelda.
+- **meta** : Metadados da página. Informações sobre o documento HTML que precisam ser passadas para o navegador.
+- **nav** : Menu de navegação da página.
+- **ol** : *Ordered list*: lista ordenada de elementos.
+- **p** : Parágrafo de texto.
+- **script** : Insere código de *scripts* de programação do lado do cliente na página. Normalmente, esse código é escrito em *JavaScript*.
+- **section** : Seção da página, exceto cabeçalho e rodapé.
+- **span** : Divisão similar a **div**, para organização sem semântica, mas dentro da própria linha de texto.
+- **title** : Título da página que deve aparecer na janela do navegador.
+- **ul** : *Unordered list*: lista não ordenada de elementos.
+
+> Uma lista de todas as tags categorizadas por tipo de aplicação pode ser encontrada [no site da w3schools](https://www.w3schools.com/tags/ref_byfunc.asp).
+
+Como exemplo, para criar uma seção na página com um título e dois parágrafos:
+
+```
+<html>
+    <head>
+    </head>
+    <body>
+        <section>
+            <h2>Este é o título da seção<h2>
+            <p>Aqui vai o texto do primeiro parágrafo.</p>
+            <p>Aqui, por sua vez, vai o texto do segundo parágrafo.</p>
+        </section>
+    <body>
+</html>
+```
+
+O recuo a partir da esquerda do código, chamado de endentação (ou indentação, ou identação), é importante para aumentar a legibilidade do código e descrever como os elementos se relacionam. No exemplo acima, a endentação ajuda a ver que o título e os parágrafos estão dentro da seção, que por sua vez está dentro do corpo da página.
+
+> No Visual Studio Code é possível usar a combinação *ctrl + shift + p* e digitar *Reindent Lines* para reorganizar todas as linhas de um arquivo de código.
+
+
+Algumas tags não são identificadas somente pelo conteúdo. As tags podem ter *propriedades*, que as modificam sem alterar diretamente sua natureza. As propriedades são definidas na abertura da tag que identifica o elemento, com o nome da propriedade e um valor associado a ela, colocado entre aspas. Um exemplo é a tag de âncora (**a**), que possui a propriedade *href*, que aponta para onde o navegador deve seguir quando o link for acessado:
+
+```
+<a href="http://mastertech.tech">Clique para acessar a página da Mastertech!</a>
+```
+
+Existem tags cujas propriedades são suficientes para definir e construir a estrutura do elemento. Exemplos mais comuns são as tags de **img** e **input**. Essas tags não possuem conteúdo e, portanto, não possuem fechamento:
+
+```
+<img src="imagens/foo.png" alt="alguma imagem qualquer">
+<input type="text" placeholder="Digite algo aqui">
+```
+
+> Na realidade, algumas ferramentas exigem que as tags sem conteúdo sejam fechadas, usando uma barra no final da tag, como em <img src="foo.jpg">
+
+> As tags **meta**, no início do template do Visual Studio Code, também são exemplos de tags sem fechamento.
+
+> É importante abrir uma página, como github.com por exemplo, inspecionar os elementos usando as ferramentas de desenvolvedor para dar exemplos de como as tags são usadas e organizadas em um arquivo de HTML. Evite páginas muito complexas, como e-commerces ou o globoesporte, porque essas páginas são geradas com ferramentas e não costumam ter o HTML simples de interpretar.
+
+O HTML é responsável somente pela criação dos itens na página. A formatação e o posicionamento desses itens é realizada através do *CSS*.
+
+## CSS I - Formatação geral (45min)
+
+## CSS II - Posicionamento e responsividade (60min)
+
+## Publicação (45min)
