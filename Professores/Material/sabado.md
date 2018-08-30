@@ -11,7 +11,7 @@
 ## Introdução à Web (30min)
 
 ### Redes e Protocolos
-O que acontece quando acessamos o Google? Como é a interação entre os diversos sistemas desde o momento em que digitamos a URL no navegador até o momento que temos a página exibida em nossa tela? 
+O que acontece quando acessamos o Google? Como é a interação entre os diversos sistemas desde o momento em que digitamos a URL no navegador até o momento que temos a página exibida em nossa tela?
 
 Os computadores conseguem se comunicar porque estão interligados por redes - a ligação dessas redes umas às outras forma a Internet. Dentro da Internet, os computadores têm endereços específicos, que os identificam para a troca de dados, e mecanismos que permitem que a comunicação seja realizada de forma *transparente* ao usuário. Em informática, o conceito de transparente é o contrário do que podemos esperar: a Internet opera de forma transparente porque o usuário não vê nenhuma das etapas que acontecem até que os dados sejam acessados no seu computador.
 
@@ -100,7 +100,7 @@ Como exemplo, para criar uma seção na página com um título e dois parágrafo
 
 O recuo a partir da esquerda do código, chamado de endentação (ou indentação, ou identação), é importante para aumentar a legibilidade do código e descrever como os elementos se relacionam. No exemplo acima, a endentação ajuda a ver que o título e os parágrafos estão dentro da seção, que por sua vez está dentro do corpo da página.
 
-> No Visual Studio Code é possível usar a combinação *ctrl + shift + p* e digitar *Reindent Lines* para reorganizar todas as linhas de um arquivo de código.
+> No Visual Studio Code é possível pressionar a tecla *f1* e digitar *Reindent Lines* para reorganizar todas as linhas de um arquivo de código.
 
 
 Algumas tags não são identificadas somente pelo conteúdo. As tags podem ter *propriedades*, que as modificam sem alterar diretamente sua natureza. As propriedades são definidas na abertura da tag que identifica o elemento, com o nome da propriedade e um valor associado a ela, colocado entre aspas. Um exemplo é a tag de âncora (**a**), que possui a propriedade *href*, que aponta para onde o navegador deve seguir quando o link for acessado:
@@ -115,10 +115,9 @@ Existem tags cujas propriedades são suficientes para definir e construir a estr
 <img src="imagens/foo.png" alt="alguma imagem qualquer">
 <input type="text" placeholder="Digite algo aqui">
 ```
-
-> Na realidade, algumas ferramentas exigem que as tags sem conteúdo sejam fechadas, usando uma barra no final da tag, como em <img src="foo.jpg">
-
 > As tags **meta**, no início do template do Visual Studio Code, também são exemplos de tags sem fechamento.
+
+> Versões anteriores do HTML exigiam que as tags sem fechamento usassem uma barra no final da tag, como em <img src="foo.jpg"/>. Essa forma não é mais necessária no HTML5 e geralmente não é recomendada.
 
 > É importante abrir uma página, como github.com por exemplo, inspecionar os elementos usando as ferramentas de desenvolvedor para dar exemplos de como as tags são usadas e organizadas em um arquivo de HTML. Evite páginas muito complexas, como e-commerces ou o globoesporte, porque essas páginas são geradas com ferramentas e não costumam ter o HTML simples de interpretar.
 
