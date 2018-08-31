@@ -5,15 +5,15 @@
 ## Introdução a programação e a Lógica
 
 ### O que é um algoritmo
-Um algoritmo é uma sequência de passos para realizar uma tarefa. Essa sequência deve ser correta, completa e clara.
+Um algoritmo é uma sequência de passos para realizar uma tarefa. Essa sequência deve ser *correta*, *completa* e *clara*.
 
 A ideia de sequência é que os passos do algoritmo tem ordem para serem executados, e essa ordem deve ser preservada.
 
-Correta significa que a sequência de passos deve, com certeza, atingir o objetivo. Um algoritmo é considerado correto se, após o último passo ser executado, chega-se ao resultado esperado.
+*Correta* significa que a sequência de passos deve, com certeza, atingir o objetivo. Um algoritmo é considerado correto se, após o último passo ser executado, chega-se ao resultado esperado.
 
-Completa significa que a sequência não deve ter nenhum passo faltando. Todas as informações e instruções para chegar ao objetivo devem estar no passo-a-passo. Quem lê e executa os passos não deve ter que "inferir" nenhum passo, nem preencher nenhuma lacuna.
+*Completa* significa que a sequência não deve ter nenhum passo faltando. Todas as informações e instruções para chegar ao objetivo devem estar no passo-a-passo. Quem lê e executa os passos não deve ter que "inferir" nenhum passo, nem preencher nenhuma lacuna.
 
-Clara significa que não pode haver ambiguidade em nenhum dos passos. As informações e instruções devem estar descritas de uma maneira que não gerem dúvidas: a natureza das informações deve ser específica e não pode haver duas maneiras distintas de executar uma instrução. Além disso, quem lê ou executa o algoritmo deve chegar ao resultado fazendo exatamente o que a sequência de passos define.
+*Clara* significa que não pode haver ambiguidade em nenhum dos passos. As informações e instruções devem estar descritas de uma maneira que não gerem dúvidas: a natureza das informações deve ser específica e não pode haver duas maneiras distintas de executar uma instrução. Além disso, quem lê ou executa o algoritmo deve chegar ao resultado fazendo exatamente o que a sequência de passos define.
 
 > Normalmente, quando aprendemos sobre algoritmo, os exemplos dizem que é como uma "receita de bolo". Isso definitivamente não é verdade! A analogia é utilizada porque as receitas possuem um "modo de fazer" sequencial, orientado por passos, mas algumas considerações precisam ser feitas.
 Primeiro, as receitas não são claras: não existe padrão para as quantidades dos ingredientes. Uma xícara de chá não tem uma medida exata, assim como uma colher de sopa cheia não significa uma porção exata. Duas pessoas diferentes podem seguir a mesma receita com o material que possuem em casa e as quantidades não serão as mesmas. Além disso, passos como "bata as claras em neve" deixam ambiguidades: como? com qual instrumento? o que define "em neve"?
@@ -70,12 +70,14 @@ No processo de interpretação, o código-fonte é convertido em instruções pa
 
 ## Javascript (1 hora)
 
+O Javascript é a linguagem padrão para as páginas da web. É com ele que são implementados desde sites institucionais até sistemas complexos como o Google Drive. O browser possui dentro de si um interpretador da linguagem, que é responsável por executar os scripts presentes nas páginas.
+
+> Iniciar os primeiros comandos dentro do console do browser, para que o aluno possa ver seu resultado em tempo real. Explicar que o console se trata de uma forma interativa de executar comandos de Javascript e é usado para testes, mas que não corresponde à realidade de desenvolvimento do dia-a-dia de um programador web.
+
 ### Variáveis
-Ao programar, temos a possibilidade de armazenar e realizar operações com valores já armazenanados na memória do programa. Uma variável é um espaço na memória que armazena um valor.
+Ao programar, temos a possibilidade de armazenar valores na memória do programa e realizar operações com eles. Para isso, fazemos o uso de variáveis, que são espaços de memória que armazenam valores.
 
-No caso do Javascript, a memória é individual para cada página, de forma que duas páginas exibidas em abas diferentes não compartilham valores de memória. Ao recarregar a página, limpa-se a memória e reinicia-se o script.
-
-As variáveis são criadas utilizando a palavra chave `let`. O nome da variável é definido livremente pelo programador, desde que siga-se algumas regras:
+As variáveis são criadas utilizando a palavra chave **let**. O nome da variável é definido livremente pelo programador, desde que algumas regras sejam seguidas:
 
 - Não pode conter caracteres especiais, como acentos, cedilhas ou til
 - Não pode conter espaços
@@ -85,23 +87,23 @@ As variáveis são criadas utilizando a palavra chave `let`. O nome da variável
 let salario;
 ```
 
-Não podemos declarar uma variável com o mesmo nome de outra variável, pois isso gera um erro de execução.
-
-> Pode-se usar nomes repetidos para variáveis desde que elas não estejam no mesmo escopo, porém é melhor omitir essa informação nesse momento.
-
-Perceba que toda linha é finalizada com um ponto-e-vírgula, que indica que a instrução finalizou.
-
-> Finalizar instruções com ponto-e-vírgula é um requisito do Javascript, ainda que este possua um mecanismo que permita que ele tenha um certo nível de tolerâncias à essa omissão.
-
-### Tipos de variáveis
-
-Para armazenar um valor em uma variável, usamos o operador `=`.
+Para armazenar um valor em uma variável, usamos o operador **=**.
 
 ```
 let salario = 1000;
 ```
 
-No Javascript, o tipo da variável é definido pelo valor que é atribuído à ela. Se alteramos o valor da variável, é possível também alterar seu tipo
+No caso do Javascript, a memória é individual para cada página, de forma que duas páginas exibidas em abas diferentes não compartilham valores de memória. Ao recarregar a página, limpa-se a memória e reinicia-se qualquer script que esteja presente na página.
+
+Não podemos redeclarar uma variável, pois isso gera um erro de execução. Para alterar o valor de uma variável já, basta utilizar o operador **=** sem a necessida da palavra **let**
+
+Perceba que toda linha é finalizada com um ponto-e-vírgula, que indica que a instrução finalizou.
+
+> Finalizar instruções com ponto-e-vírgula é um requisito do Javascript, ainda que este possua um mecanismo que permita que ele tenha um certo nível de tolerâncias à essa omissão.
+
+### Tipos e Operações
+
+No Javascript, o tipo da variável é definido pelo valor que esta atribuído a ela naquele momento. Os seguintes tipos estão presentes nas linguagem:
 
 | TIPO    | DESCRIÇÃO  |
 | --------|----------- |
@@ -112,16 +114,16 @@ No Javascript, o tipo da variável é definido pelo valor que é atribuído à e
 | array  | armazena diversos valores organizados por posição|
 
 > Array não é tecnicamente um tipo de variável, visto que o Javascript o identifica simplesmente como `object`. Porém, incluímos array nessa tabela por motivos didáticos.
-
-```
-let salario = 1;
-let frase = 'Esse é um texto';
-let estaFrio = false;
-```
-
 > Apesar de citarmos os objetos e vetores entre os tipos de variável, sugerimos que eles não sejam exemplificados nem aprofundados nesse momento da aula.
 
-### Operações
+O tipo de uma variável é importante pois ele determina o resultado de operações realizadas com ela, além de funcionalidades disponíveis. Podemos por exemplo, somar duas variáveis numéricas e obter o resultado da conta, porém se somamos duas variáveis do tipo *string*, o resultado é a união dos dois valores, o que é chamado de *concatenação*.
+
+```
+1 + 1 //resutado é 2
+'1' + '1' //resultado é 11
+```
+Os seguintes operadores estão disponíveis em Javascript:
+
 #### Operadores aritméticos
 | Operador | Descrição |
 |----------|---------- |
@@ -135,16 +137,32 @@ let estaFrio = false;
 | - - | decremento |
 
 
+Note que para armazenar o resultado de uma operação em uma variável, é necessário a utilização do operador **=**. Realizar a operação não altera o valor da variável por si.
+
 ```
 let salario = 1000;
 let aumento = 500;
 
-console.log(salario + aumento);
+salario + aumento; //resultado é descartado
+salario = salario + aumento; //o resultado é armazenado na variável salário
 ```
 
-> É importante esclarecer que uma operação não altera o valor da variável a não ser que seja utilizado o operador de atribuição `=`. Uma excessão à essa regra são os operadores de incremento.
+#### Criando arquivos .js
 
-#### Operadores lógicos
+Os scripts de uma página são geralmente escritos em arquivos separados com a extensão **.js**. Para que a página carregue esse script é necessário inserir dentro do seu HTML a seguinte tag:
+
+`<script src="scripts.js" defer></script>`
+
+É recomendável que essa tag seja inserida no **head** da página. Note a palavra **defer** na abertura da tag, que indica que o script só deve ser executado quando todo o restante da página já tiver sido carregado.
+
+> Utilize esse momento para propor alguns exercícios simples com operações. Para isso, faça uso das funções *alert* para exibir os valores e *prompt* para obter valores do usuário.
+
+**TODO: Incluir exemplos de exercícios**
+**TODO: Conversão de valores**
+
+### Condicionais
+
+#### Operadores Lógicos
 Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`;
 | Operador | Descrição |
 |----------|---------- |
@@ -155,3 +173,5 @@ Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`
 | < | menor |
 | >= | maior ou igual |
 | <= | menor ou igual |
+
+> Apresentar o comando alert como uma forma de exibir os valores no browser.
