@@ -95,7 +95,11 @@ let salario = 1000;
 
 No caso do Javascript, a memória é individual para cada página, de forma que duas páginas exibidas em abas diferentes não compartilham valores de memória. Ao recarregar a página, limpa-se a memória e reinicia-se qualquer script que esteja presente na página.
 
-Não podemos redeclarar uma variável, pois isso gera um erro de execução. Para alterar o valor de uma variável já, basta utilizar o operador **=** sem a necessida da palavra **let**
+Não podemos redeclarar uma variável, pois isso gera um erro de execução. Para alterar o valor de uma variável já, basta utilizar o operador **=** sem a necessidade da palavra **let**.
+
+```
+salario = 2000;
+```
 
 Perceba que toda linha é finalizada com um ponto-e-vírgula, que indica que a instrução finalizou.
 
@@ -111,7 +115,7 @@ No Javascript, o tipo da variável é definido pelo valor que esta atribuído a 
 | string  | texto |
 | boolean | verdadeiro ou falso|
 | object  | armazena diversos valores organizados em pares de chave e valor|
-| array  | armazena diversos valores organizados por posição|
+| *array  | armazena diversos valores organizados por posição|
 
 > Array não é tecnicamente um tipo de variável, visto que o Javascript o identifica simplesmente como `object`. Porém, incluímos array nessa tabela por motivos didáticos.
 > Apesar de citarmos os objetos e vetores entre os tipos de variável, sugerimos que eles não sejam exemplificados nem aprofundados nesse momento da aula.
@@ -157,10 +161,67 @@ Os scripts de uma página são geralmente escritos em arquivos separados com a e
 
 > Utilize esse momento para propor alguns exercícios simples com operações. Para isso, faça uso das funções *alert* para exibir os valores e *prompt* para obter valores do usuário.
 
-**TODO: Incluir exemplos de exercícios**
-**TODO: Conversão de valores**
+> TODO: ADICIONAR EX1
+
+### Conversão de valores
+Muitas vezes é necessário converter o tipo de uma variável para utilizá-la de forma correta no contexto do que estamos programando. A função *prompt*, por exemplo, sempre retorna uma variável do tipo **string**, mesmo que o usuário tenha inserido um valor numérico. A tentativa de somar variáveis que foram obtidas pelo método prompt vai resultar na concatenação dos valores.
+
+```
+let idade = prompt('Digite sua idade'); //o usuário digitou 11 no popup
+
+let idadeRelativa = idade + 20;
+
+alert(idadeRelativa); //o resultado é 1120
+```
+
+Para converter tipos de variável, o Javascript possui as seguintes funções:
+
+| Função | Descrição |
+|--------|-----------|
+| Number | Converte o valor em **number** |
+| String | Converte o valor em **string** |
+| Boolean | Converte o valor em **boolean** |
+
+```
+let idadeString = prompt('Digite sua idade'); //o usuário digitou 11 no popup
+let idade = Number(idadeString); //converte a string em number
+
+let idadeRelativa = idade + 20;
+
+alert(idadeRelativa); //o resultado é 31
+```
+
+> Note que ao tentar converter um valor não numérico em Number, o resultado será *NaN*, que significa *Not a Number*. Podemos verificar se uma variável é NaN usando a função **isNaN**
+
+> TODO: ADICIONAR EX2
 
 ### Condicionais
+
+Uma das capacidades presentes em todas as linguagens de programação é a capacidade de criar algoritmos para tomadas de decisão. A estrutura mais simples para definir o fluxo do programa de acordo à um valor é o **if**.
+
+```
+let palavra = prompt('Fale, amigo, e entre.');
+
+if(palavra == 'mellon'){
+  alert('Você pode passar!');
+}
+```   
+
+No caso acima, o alert só será executado caso o valor da variável *palavra* seja igual a `mellon`. Veja que o operador **==** realiza a comparação dos dois valores, e retorna um valor booleano: *true* ou *false*.
+
+Podemos também definir instruções que sejam executadas caso a condição lógica resulte em *false*:
+
+```
+let resposta = prompt('Qual a resposta para a vida, o universo e tudo mais?');
+
+if(resposta == '42'){
+  alert('Você está correto!');
+}else{
+  alert('Você errou...');
+}
+```  
+
+Nesse caso, o alert com o texto *Você errou...* será executado toda vez que o valor inserido pelo usuário **seja diferente** de '42'.
 
 #### Operadores Lógicos
 Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`;
@@ -174,4 +235,4 @@ Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`
 | >= | maior ou igual |
 | <= | menor ou igual |
 
-> Apresentar o comando alert como uma forma de exibir os valores no browser.
+> TODO: ADICIONAR EX3
