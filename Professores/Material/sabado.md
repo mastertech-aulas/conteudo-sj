@@ -28,13 +28,17 @@ O HTML - *Hyper Text Markup Language* - é uma linguagem de marcação, e não d
 ### Front End e Back End
 Ao acessar o site pela primeira vez, seu computador faz o download do código do site que está disponível no servidor. O primeiro arquivo que é baixado é o HTML do site. O browser se encarrega de ler cada linha do HTML e interpreta o código para *renderizá-lo*, ou seja, transformá-lo em uma página visualmente agradável. Se ele encontra alguma referência a outro arquivo (um arquivo de CSS, ou uma imagem, por exemplo), o browser faz uma nova requisição ao servidor para baixar o arquivo que ele necessita. O código baixado e executado pelo computador é o front end, ou client-side.
 
->>> Mostrar a aba `Network` das ferramentas de desenvolvedor para ilustrar a explicação acima
+> Mostrar a aba `Network` das ferramentas de desenvolvedor para ilustrar a explicação acima
 
 Se o servidor precisa executar algum código antes de entregar ou montar os arquivos para o browser, esse código é o back end. Note que o browser não consegue ver ou acessar o código de backend, visto que ele é completamente executado pelo servidor e o resultado dessa execução são os arquivos entregues para o cliente. Dessa forma, um arquivo HTML pode ser gerado dinamicamente através de dados armazenados no banco de dados, por exemplo, ao invés de ser um arquivo convencional imutável.
 
 ## HTML (30min)
 
 O HTML é uma linguagem de marcação estruturada por *tags*. Cada tag de html corresponde a um elemento da página, com suas características e conteúdo.
+
+O arquivo deve ser salvo com a extensão .html, e de preferência deve se chamar 'index.html'.
+
+> O arquivo HTML pode ter qualquer nome, mas o padrão da maioria dos serviços é buscar 'index.html' como página inicial.
 
 > O Visual Studio Code tem um autocomplete para html:5, que pode ser usado como o kickstart da aula. Algumas tags já vem construídas junto com a estrutura obrigatória.
 
@@ -102,7 +106,6 @@ O recuo a partir da esquerda do código, chamado de endentação (ou indentaçã
 
 > No Visual Studio Code é possível pressionar a tecla *f1* e digitar *Reindent Lines* para reorganizar todas as linhas de um arquivo de código.
 
-
 Algumas tags não são identificadas somente pelo conteúdo. As tags podem ter *propriedades*, que as modificam sem alterar diretamente sua natureza. As propriedades são definidas na abertura da tag que identifica o elemento, com o nome da propriedade e um valor associado a ela, colocado entre aspas. Um exemplo é a tag de âncora (**a**), que possui a propriedade *href*, que aponta para onde o navegador deve seguir quando o link for acessado:
 
 ```
@@ -125,7 +128,175 @@ O HTML é responsável somente pela criação dos itens na página. A formataç�
 
 ## CSS I - Formatação geral (45min)
 
+A demanda por maiores recursos visuais nas páginas adicionou ao HTML tags de formatação e de posicionamento, tornando a especificação muito complexa e difícil de manter. O CSS foi criado para substituir essas tags. A utilização como padrão e as atualizações trouxeram uma gama enorme de opções de estilzação de elementos usando a linguagem.
+
+> Existe mais de uma maneira de usar o CSS para estilizar uma página. É conveniente ensinar somente uma delas a princípio.
+
+Para usar o CSS, um arquivo .css deve ser criado. Esse arquivo deve ser aplicado ao HTML através de uma ligação externa, utilizando a tag **link**, fazendo assim com que :
+```
+<link rel="stylesheet" href="css/styles.css">
+```
+
+No exemplo, 'styles.css' é o nome do arquivo, e ele se encontra dentro da pasta 'css'. A pasta 'css' está no mesmo local que o arquivo HTML.
+
+> É importante lembrar que o caminho do arquivo deve partir da mesma pasta onde está o HTML.
+
+### Blocos e seletores
+
+A estrutura de um arquivo CSS é organizada em blocos, da seguinte forma:
+
+```
+seletor {
+    propeiedade-1: valor-1;
+    propriedade-2: valor-2;
+}
+```
+
+O *seletor* do bloco diz a quais elementos do HTML as propriedades devem ser aplicadas. As propriedades são as definições de estilo em si. Por exemplo, para que todas as **sections** tenham a fonte em vermelho, podemos aplicar:
+
+```
+section {
+    color: red;
+}
+```
+
+O seletor mostrado acima é um seletor de tag. Quando usamos o próprio nome da TAG para selecionar CSS, estamos aplicando o bloco de formatação a todos os elementos criados com a mesma tag no HTML. Por isso o exemplo acima formatará todas as **sections**.
+
+No entanto, as vezes queremos formatar somente alguns elementos no HTML. Podemos fazer isso aplicando a eles propriedades de HTML chamadas *class* e *id*. Uma *class** é um conjunto de elementos que possuem características em comum. Já um *id* é usado para identificar unicamente um elemento. Observe o código HTML abaixo:
+
+```
+<body>
+    <header>
+        <h1>Título da Página</h1>
+        <nav>
+            <a>Link 1</a>
+            <a>Link 2</a>
+            <a>Link 3</a>
+            <a>Link 4</a>
+        </nav>
+    </header>
+    <aside>
+        <h2>Título Lateral</h2>
+        <nav>
+            <a>Link Lateral 1</a>
+            <a>Link Lateral 2</a>
+        </nav>
+        <p>Parágrafo 1</p>
+        <p>Parágrafo 2</p>
+    </aside>
+    <section>
+        <h2>Título da Seção<h2>
+        <p>Parágrafo 3</p>
+        <p>Parágrafo 4</p>
+        <p>Parágrafo 5</p>
+    </section>
+</body>
+```
+
+Nessa página, os subtítulos **h2** precisam ter uma fonte diferente. Alguns links e parágrafos devem ter destaque, com um fundo azul, e o primeiro parágrafo da seção deve ter um tamanho de fonte maior. Para os subtítulos, podemos utilizar o seletor de tag. Para os itens em destaque, definiremos uma classe e chamaremos de 'destaque'. Para o parágrafo maior, criaremos um id e chamaremos de 'maior'.
+
+> Vários elementos podem ser da mesma class, mas só um elemento pode ser identificado por um mesmo id.
+> Um elemento pode ter várias classes, mas um elemento pode ter somente um id. Para que um elemento tenha várias classes, basta listá-las na propriedade class separando com espaço: `<div class="primeira segunda terceira"></div>`.
+
+> Os nomes das classes e ids podem ser escolhidos à vontade, mas é sempre bom se ater ao significado que eles têm para a página.
+
+```
+<body>
+    <header>
+        <h1>Título da Página</h1>
+        <nav>
+            <a class="destaque">Link 1</a>
+            <a class="destaque">Link 2</a>
+            <a>Link 3</a>
+            <a>Link 4</a>
+        </nav>
+    </header>
+    <aside>
+        <h2>Título Lateral</h2>
+        <nav>
+            <a class="destaque">Link Lateral 1</a>
+            <a>Link Lateral 2</a>
+        </nav>
+        <p>Parágrafo 1</p>
+        <p class="destaque">Parágrafo 2</p>
+    </aside>
+    <section>
+        <h2>Título da Seção<h2>
+        <p id="maior">Parágrafo 3</p>
+        <p>Parágrafo 4</p>
+        <p class="destaque">Parágrafo 5</p>
+    </section>
+</body>
+```
+
+Para cumprir as regras de formatação, usaremos seletores de class e de id no CSS. Um seletor de class começa com '.', seguido do nome da class. Um seletor de id começa com '#', seguido do nome do id.
+
+```
+h2 {
+    font-family: sans-serif;
+}
+
+.destaque {
+    background-color: blue;
+}
+
+#maior {
+    font-size: 20pt;
+}
+```
+
+Agora que sabemos como aplicar CSS aos elementos, é importante saber o que podemos alterar. Os links abaixo trazem várias propriedades de formatação e orientam sobre como usá-las. Se houver dificuldade com o inglês, o google tradutor é seu amigo:
+- [Formatação de fontes](https://www.w3schools.com/css/css_font.asp)
+- [Cores no geral](https://www.w3schools.com/css/css_colors.asp)
+- [Planos de fundo](https://www.w3schools.com/css/css_background.asp)
+- [Formatação de texto no geral](https://www.w3schools.com/css/css_text.asp)
+
+#### Unidades de medida
+
+As medidas de tamanho no CSS precisam de uma unidade definida. Algumas unidades são absolutas, ou seja, fazem com que os elementos tenham sempre o mesmo tamanho. Outras são relativas, dependendo de outros fatores para definir o seu tamanho. As principais unidades de medida de tamanho são:
+
+| Unidade | Tipo | Descrição |
+|---------|------|-----------|
+| **mm** | Absoluta | Medida exata em milímetros. Normalmente não usada por ser muito restritiva. |
+| **pt** | Absoluta | Pontos. Normalmente usada em fontes, por ser o padrão da maioria dos editores de texto. |
+| **px** | Absoluta | Quantidade de pixels. Medida mais comum para o box model. Apesar de ser absoluta, pode variar com a resolução da tela. |
+| **%**  | Relativa | Porcentagem do tamanho disponível para o elemento no documento. |
+| **vw** | Relativa | Porcentagem da largura total da parte visível da tela. |
+| **vh** | Relativa | Porcentagem da altura total da parte visível da tela. |
+
+### O Box Model
+
+Para definir o tamanho de um elemento no CSS precisamos primeiro conhecer o *Box Model*, ou *Modelo de Caixa*. A caixa de um elemento tem quatro camadas:
+- Conteúdo: É a área onde fica o texto ou imagem do elemento.
+- Padding: É o espaçamento existente entre o conteúdo e a borda do elemento, definindo sua área útil. É normalmente usado para fazer com que o elemento ocupe mais espaço no total, ou simplesmente para afastar a borda do conteúdo.
+- Border: É a borda que limita o elemento.
+- Margin: É o espaçamento externo à borda do elemento. É normalmente usada para afastar os elementos uns dos outros.
+
+> É possivel mostrar a organização do box model com essas camadas acessando as ferramentas do desenvolvedor, aba 'elements' e opção 'styles'.
+
+Para definir o tamanho do conteúdo, basta usar as propriedades *width* e *height* com as unidades de medida desejadas.
+
+Os tamanhos da borda, padding e margin podem ser definidos pelas propriedades de mesmo nome. Podem ser definidos tanto individualmente, usando -*top*, -*bottom*, -*left* e -*right* como sufixo da propriedade do box model, como todos de uma vez, usando somente o nome da propriedade e colocando os valores. Ex:
+
+- **border-top: 5px**: formata somente a borda superior com 5px de espessura.
+- **padding: 10px**: formata os paddings dos quatro lados para 10px.
+- **margin: 30px 50px**: formata as margens superior e inferior com 30px e as margens esquerda e direita com 50px.
+- **padding: 10px 20px 30px**: formata o padding superior com 10px, os laterais com 20px e o inferior com 30px.
+- **margin: 10px 0 30px 40px**: formata a margem superior com 10px, a margem direita com 0 (desnecessária a unidade de medida para zero), a margem inferior com 30px e a margem esquerda com 40px.
+
+Para as bordas, é possível definir uma cor, com *border-color*. A cor do padding é a mesma *background-color* do conteúdo do elemento].
+
+> Exceto pelo conteúdo, é comum que as medidas da caixa sejam definidas em **px**.
+
 ## CSS II - Posicionamento e responsividade (60min)
+
+Display
+
+Position
+
+FlexBox
+
+MediaQuery
 
 ## Publicação (45min)
 
