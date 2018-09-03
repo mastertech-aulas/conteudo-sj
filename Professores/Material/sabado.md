@@ -32,6 +32,9 @@ Ao acessar o site pela primeira vez, seu computador faz o download do código do
 
 Se o servidor precisa executar algum código antes de entregar ou montar os arquivos para o browser, esse código é o back end. Note que o browser não consegue ver ou acessar o código de backend, visto que ele é completamente executado pelo servidor e o resultado dessa execução são os arquivos entregues para o cliente. Dessa forma, um arquivo HTML pode ser gerado dinamicamente através de dados armazenados no banco de dados, por exemplo, ao invés de ser um arquivo convencional imutável.
 
+### Semântica em código? 
+Semântica dentro de HTML é a prática de dar significado ao conteúdo da página estruturando a mesma usando os elementos adequados, igual feito no português, inglês.... Código semântico descreve a importância do conteúdo de uma página, independentemente do estilo ou aparência do que conteúdo. Existem várias vantagens de se utilizar elementos semânticos, permitindo que computadores, leitores de tela, motores de busca e outros dispositivos de leitura compreendam adequadamente o conteúdo em uma página web. 
+
 ## HTML (30min)
 
 O HTML é uma linguagem de marcação estruturada por *tags*. Cada tag de html corresponde a um elemento da página, com suas características e conteúdo.
@@ -147,7 +150,7 @@ A estrutura de um arquivo CSS é organizada em blocos, da seguinte forma:
 
 ```
 seletor {
-    propeiedade-1: valor-1;
+    propriedade-1: valor-1;
     propriedade-2: valor-2;
 }
 ```
@@ -264,6 +267,15 @@ As medidas de tamanho no CSS precisam de uma unidade definida. Algumas unidades 
 | **vw** | Relativa | Porcentagem da largura total da parte visível da tela. |
 | **vh** | Relativa | Porcentagem da altura total da parte visível da tela. |
 
+### Margin e Padding
+
+Margin - É a margem do elemento, ou seja, o espaçamento externo do elemento.
+
+Padding - É o preenchimento do elemento, ou seja, o espaçamento interno do elemento.
+
+![diferenças](https://i.stack.imgur.com/zLQiz.png)
+
+
 ### O Box Model
 
 Para definir o tamanho de um elemento no CSS precisamos primeiro conhecer o *Box Model*, ou *Modelo de Caixa*. A caixa de um elemento tem quatro camadas:
@@ -291,12 +303,100 @@ Para as bordas, é possível definir uma cor, com *border-color*. A cor do paddi
 ## CSS II - Posicionamento e responsividade (60min)
 
 Display
+- display: inline : permite posicionar os elementos um do lado do outro. Uma
+desvantagem é que os elementos não aceitam que sejam modificadas as
+propriedades width e height.
+
+- block : permite os elementos se posicionarem um do lado do outro
+porém, diferentemente do display: inline ele permite que os elementos tenham
+sua width e height modificadas. Uma desvantagem de usar display: inline-block é
+espaçar os elementos entre si. Para fazer isso temos que colocar margin.
+
+- float : O float empurra o elemento para um dos lados (left | right) e os
+elementos que estão em baixo sobem. Pode ser uma alternativa para posicionar 2
+elementos como <div> uma ao lado da outra.
+
+- display: flex : Ele permite os elementos ficarem um do lado do outro, permite
+espaçar os elementos de forma mais intuitiva. Além disso ele também permite alinhar
+os elementos verticalmente de forma fácil. O display flex pode ser um pouco mais
+complicado de usar porém é bom enfatizar que é uma ótimo alternativo para criação de layouts responsivos.
+
+- [Exemplos de display flex](https://imasters.com.br/css/adeus-flexbox-bem-vindo-css-grid-layout)
 
 Position
 
-FlexBox
+- Relative: A posição do elemento é relativa ao elemento anterior. Ou seja, na posição inicial do elemento, inserido no próprio html, é possível alterar sua posição para direita, esquerda...e sua base inicial é a sua primeira posição.
+
+- Absolute: A posição do elemento é relativa ao viewport, ou ao elemento pai quando este tem um position definido. Esta posição é influenciada pela rolagem da página.
+
+- Fixed: A posição do elemento é relativa ao viewport igual ao absolute porém não é influenciada pela rolagem da página. Um exemplo bom, é de algumas <nav> que são utilizadas a posição fixed para se manter no topo da tela e o restante do site rodar por trás.
 
 MediaQuery
+
+São expressões de CSS utilizadas para mudar o layout em diferentes dispositivos sem mudar o conteúdo. E como usar em seu CSS? Em resumo os atributos seriam como um tutorial do que você precisa que aconteça em um determinado dispositivo.
+
+Um bom conceito para que seja compreendido é associar como se você perguntasse para o browser: “ O seu dispositivo é uma tela e a largura máxima é 320 pixels?”. Se a resposta for sim o navegador aplica o que consta no seu arquivo css.
+
+320 pixels – Smartphones no modo retrato.
+480 pixels – Smartphones no modo paisagem.
+600 pixels – Tablets pequenos. Ex: Amazon Kindle (600×800)
+768 pixels – Tablets maiores em modo retrato. Ex: iPad (768×1024)
+1024 pixels – Tablets maiores em modo paisagem, monitores antigos.
+1200 pixels – Monitores
+
+```
+./* regra aplicada em todo código */
+body { background: blue; }
+
+/* aplica somente a partir de 320px */
+@media screen and (min-width: 320px) {
+body { font-size: 80%; }
+}
+
+/* aplica somente a partir de 480px em landscape */
+@media screen and (min-width: 480px) and (orientation: landscape) {
+nav { float: left; }
+}
+```
+
+####Exemplos para aula
+
+Como montar um menu de navegação:
+
+Estrutura HTML
+```
+<html>
+<body>
+    <header>
+        <nav id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        </nav>
+         <h1>Título da Página</h1>
+</body>
+</html>
+
+```
+Estrutura CSS
+
+#menu ul li{
+    display: inline;
+}
+
+#menu ul li a {
+    color: blue;
+    padding: 10px;
+    text-decoration: none;
+    border: 2px solid black;
+    margin-left: 10px;
+}
+```
+
+       
 
 ## Publicação (45min)
 
@@ -343,3 +443,5 @@ Após a instalação do NodeJS, basta abrir o terminal e usar o comando:
 7- *What do you want to use as your public directory?* Digite `.` e pressione enter
 8- *Configure as a single-page app (rewrite all urls to /index.html)?* Digite `n` e pressione enter
 9- O menu interativo irá encerrar. Digite o comando `firebase deploy` e pressione enter
+
+No final irá aparecer o 2 links de acesso, onde o segundo será possível ver seu site online.
