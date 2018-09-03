@@ -32,6 +32,8 @@ Ao acessar o site pela primeira vez, seu computador faz o download do código do
 
 Se o servidor precisa executar algum código antes de entregar ou montar os arquivos para o browser, esse código é o back end. Note que o browser não consegue ver ou acessar o código de backend, visto que ele é completamente executado pelo servidor e o resultado dessa execução são os arquivos entregues para o cliente. Dessa forma, um arquivo HTML pode ser gerado dinamicamente através de dados armazenados no banco de dados, por exemplo, ao invés de ser um arquivo convencional imutável.
 
+
+
 ### Semântica em código? 
 Semântica dentro de HTML é a prática de dar significado ao conteúdo da página estruturando a mesma usando os elementos adequados, igual feito no português, inglês.... Código semântico descreve a importância do conteúdo de uma página, independentemente do estilo ou aparência do que conteúdo. Existem várias vantagens de se utilizar elementos semânticos, permitindo que computadores, leitores de tela, motores de busca e outros dispositivos de leitura compreendam adequadamente o conteúdo em uma página web. 
 
@@ -325,11 +327,33 @@ complicado de usar porém é bom enfatizar que é uma ótimo alternativo para cr
 
 Position
 
-- Relative: A posição do elemento é relativa ao elemento anterior. Ou seja, na posição inicial do elemento, inserido no próprio html, é possível alterar sua posição para direita, esquerda...e sua base inicial é a sua primeira posição.
+- Static: valor default de todo elemento HTML, ou seja, ele vai seguir o fluxo comum da sua página.
+
+- Relative: A posição do elemento é relativa ao elemento anterior. Ou seja, na posição inicial do elemento, inserido no próprio html, é possível alterar sua posição com as propriedades Top, Bottom, Left e Right...e sua base inicial é a sua primeira posição.
 
 - Absolute: A posição do elemento é relativa ao viewport, ou ao elemento pai quando este tem um position definido. Esta posição é influenciada pela rolagem da página.
 
 - Fixed: A posição do elemento é relativa ao viewport igual ao absolute porém não é influenciada pela rolagem da página. Um exemplo bom, é de algumas <nav> que são utilizadas a posição fixed para se manter no topo da tela e o restante do site rodar por trás.
+
+> Para um layout responsivo usar % para determinar o posicionamento. Se for um layout estático, use PX mesmo. Lembrando que % é um unidade de medida dinâmica, ou seja, o elemento com posicionamento por porcentagem vai variar de acordo com seu elemento pai.
+
+- [exemplo de position] (http://pt-br.learnlayout.com/position.html)
+
+Exemplo:
+
+```
+<div id="elemento_pai">
+   <div id="elemento_filho"></div>
+</div>
+
+```
+#elemento_pai {
+    width:100%; height:100%
+    }
+#elemento_filho {
+    width:50%; height:100%; margin-left:50%
+    }
+```
 
 MediaQuery
 
