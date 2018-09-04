@@ -236,3 +236,49 @@ Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`
 | <= | menor ou igual |
 
 > TODO: ADICIONAR EX3
+
+#### Como criar um PWA
+
+PWA é um conjunto de técnicas para desenvolver aplicações web, adicionando funcionalidades que antes só eram possíveis em apps nativos. Pode ser para qualquer usuário, responsivo, funciona mesmo no offline, tem aparência de um app nativo, aceita apenas https e tem fácil instalação.
+
+Além disso, vale ressaltar a diminuição da jornada do usuário:
+
+Com um app normal
+1- Buscar o app
+2- Instalar
+3- Abrir
+4- Cadastrar
+5- Interagir
+
+Há dados que comprovam uma perda de 20% dos usuários para cada uma dessas etapas. O mesmo não acontece na web. Basta acessarmos o link e em poucos segundos depois já estamos com o web app.
+
+Exemplos de quem já usa:
+https://code.nasa.gov/#/
+Telegram
+Twitter Lite
+Uber
+Google Maps
+
+> Quer identificar um PWA? é utilizar o Lighthouse que mede até a qualidade deste web app.
+Trata-se de uma ferramenta do Google, que faz diversos testes com a página, como testes offline ou simulando uma internet ruim, assim como diferentes resoluções, contrastes, etc.
+
+###Como fazer?
+O projeto já foi inserido dentro do Firebase, a ideia é que todos os projetos tenham um link semelhante a "meu-projeto.firebaseapp.com".
+
+Inserir no código html, um script js com estas informações:
+
+```
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+                console.log('Service Worker Registered');
+          });
+      }
+    </script>
+```
+
+
+
+
+
