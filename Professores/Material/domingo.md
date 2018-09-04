@@ -265,7 +265,14 @@ Trata-se de uma ferramenta do Google, que faz diversos testes com a página, com
 ###Como fazer?
 O projeto já foi inserido dentro do Firebase, a ideia é que todos os projetos tenham um link semelhante a "meu-projeto.firebaseapp.com".
 
-Inserir no código html, um script js com estas informações:
+Além dele, é preciso criar um arquivo manifest.json e service worker.
+
+###O que é um Service Worker?
+é um script que seu navegador executa em segundo plano, separado da página da Web, possibilitando recursos que não precisam de uma página da Web ou de interação do usuário.
+
+Em resumo, o SW te dá a opção de manipular as requisições que são feitas por sua aplicação e com isso é possível o funcionamento offline.
+
+Para acontecer isso, é necessário inserir no código html, um <script> com estas informações:
 
 ```
     <script>
@@ -277,6 +284,11 @@ Inserir no código html, um script js com estas informações:
       }
     </script>
 ```
+
+Para criar seu arquivo manifest.json, existe este site onde é possível inserir todas as informações e ícones e ele gera automaticamente um código a ser inserido no arquivo.
+https://app-manifest.firebaseapp.com/
+
+> Para saber se você está no caminho certo na construção do seu Progressive Web App é usar alguma ferramenta de inspeção como o Lighthouse já dito acima.
 
 
 
