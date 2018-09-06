@@ -34,8 +34,8 @@ Se o servidor precisa executar algum código antes de entregar ou montar os arqu
 
 
 
-### Semântica em código? 
-Semântica dentro de HTML é a prática de dar significado ao conteúdo da página estruturando a mesma usando os elementos adequados, igual feito no português, inglês.... Código semântico descreve a importância do conteúdo de uma página, independentemente do estilo ou aparência do que conteúdo. Existem várias vantagens de se utilizar elementos semânticos, permitindo que computadores, leitores de tela, motores de busca e outros dispositivos de leitura compreendam adequadamente o conteúdo em uma página web. 
+### Semântica em código?
+Semântica dentro de HTML é a prática de dar significado ao conteúdo da página estruturando a mesma usando os elementos adequados, igual feito no português, inglês.... Código semântico descreve a importância do conteúdo de uma página, independentemente do estilo ou aparência do que conteúdo. Existem várias vantagens de se utilizar elementos semânticos, permitindo que computadores, leitores de tela, motores de busca e outros dispositivos de leitura compreendam adequadamente o conteúdo em uma página web.
 
 ## HTML (30min)
 
@@ -265,22 +265,24 @@ As medidas de tamanho no CSS precisam de uma unidade definida. Algumas unidades 
 | **mm** | Absoluta | Medida exata em milímetros. Normalmente não usada por ser muito restritiva. |
 | **pt** | Absoluta | Pontos. Normalmente usada em fontes, por ser o padrão da maioria dos editores de texto. |
 | **px** | Absoluta | Quantidade de pixels. Medida mais comum para o box model. Apesar de ser absoluta, pode variar com a resolução da tela. |
+| **rem** | Absoluta | Usamos esse tipo de unidade para permitir que o texto da nossa página aumente conforme o tamanho de fonte configurado no navegador. Na configuração padrão, 1rem corresponde a 16pt.
 | **%**  | Relativa | Porcentagem do tamanho disponível para o elemento no documento. |
 | **vw** | Relativa | Porcentagem da largura total da parte visível da tela. |
 | **vh** | Relativa | Porcentagem da altura total da parte visível da tela. |
 
 ### Margin e Padding
 
-Margin - É a margem do elemento, ou seja, o espaçamento externo do elemento.
+Margin - Espaçamento externo do elemento.
 
-Padding - É o preenchimento do elemento, ou seja, o espaçamento interno do elemento.
+Padding - Espaçamento interno do elemento.
 
 ![diferenças](https://i.stack.imgur.com/zLQiz.png)
 
 
 ### O Box Model
 
-Para definir o tamanho de um elemento no CSS precisamos primeiro conhecer o *Box Model*, ou *Modelo de Caixa*. A caixa de um elemento tem quatro camadas:
+Para definir o tamanho de um elemento no CSS precisamos primeiro conhecer o *Box Model*. A caixa de um elemento tem quatro camadas:
+
 - Conteúdo: É a área onde fica o texto ou imagem do elemento.
 - Padding: É o espaçamento existente entre o conteúdo e a borda do elemento, definindo sua área útil. É normalmente usado para fazer com que o elemento ocupe mais espaço no total, ou simplesmente para afastar a borda do conteúdo.
 - Border: É a borda que limita o elemento.
@@ -288,7 +290,7 @@ Para definir o tamanho de um elemento no CSS precisamos primeiro conhecer o *Box
 
 > É possivel mostrar a organização do box model com essas camadas acessando as ferramentas do desenvolvedor, aba 'elements' e opção 'styles'.
 
-Para definir o tamanho do conteúdo, basta usar as propriedades *width* e *height* com as unidades de medida desejadas.
+Para definir um tamanho fixo para o conteúdo, basta usar as propriedades *width* e *height* com as unidades de medida desejadas.
 
 Os tamanhos da borda, padding e margin podem ser definidos pelas propriedades de mesmo nome. Podem ser definidos tanto individualmente, usando -*top*, -*bottom*, -*left* e -*right* como sufixo da propriedade do box model, como todos de uma vez, usando somente o nome da propriedade e colocando os valores. Ex:
 
@@ -298,94 +300,71 @@ Os tamanhos da borda, padding e margin podem ser definidos pelas propriedades de
 - **padding: 10px 20px 30px**: formata o padding superior com 10px, os laterais com 20px e o inferior com 30px.
 - **margin: 10px 0 30px 40px**: formata a margem superior com 10px, a margem direita com 0 (desnecessária a unidade de medida para zero), a margem inferior com 30px e a margem esquerda com 40px.
 
-Para as bordas, é possível definir uma cor, com *border-color*. A cor do padding é a mesma *background-color* do conteúdo do elemento].
+Para as bordas, é possível definir uma cor, com *border-color*. A cor do padding é a mesma *background-color* do elemento.
 
 > Exceto pelo conteúdo, é comum que as medidas da caixa sejam definidas em **px**.
 
 ## CSS II - Posicionamento e responsividade (60min)
 
-Display
-- display: inline : permite posicionar os elementos um do lado do outro. Uma
-desvantagem é que os elementos não aceitam que sejam modificadas as
-propriedades width e height.
+### Display
+- **inline**: faz com que o elemento não gere uma quebra de linha, permitindo que ele fique lado a lado com o elemento adjacente. Uma desvantagem é que modificações nas propriedades width e height não afetam esse elemento. As tags *span* e *a*, por exemplo, tem seu display configurado como *inline* por padrão.
 
-- block : permite os elementos se posicionarem um do lado do outro
-porém, diferentemente do display: inline ele permite que os elementos tenham
-sua width e height modificadas. Uma desvantagem de usar display: inline-block é
-espaçar os elementos entre si. Para fazer isso temos que colocar margin.
+- **block** : faz com que o elemento gere uma quebra de linha, empurrando o elemento adjancente para a linha de baixo. As tags *p* e *div*, por exemplo, tem seu display configurado como *block* por padrão.
 
-- float : O float empurra o elemento para um dos lados (left | right) e os
-elementos que estão em baixo sobem. Pode ser uma alternativa para posicionar 2
-elementos como <div> uma ao lado da outra.
-
-- display: flex : Ele permite os elementos ficarem um do lado do outro, permite
-espaçar os elementos de forma mais intuitiva. Além disso ele também permite alinhar
-os elementos verticalmente de forma fácil. O display flex pode ser um pouco mais
-complicado de usar porém é bom enfatizar que é uma ótimo alternativo para criação de layouts responsivos.
+- **flex**: Diferente de propriedades como *inline* e *block*, que afetam o próprio elemento, o display flex afeta os elementos internos do elemento na qual ele foi aplicado. Os elementos são forçados a se posicionar lado a lado, independente da sua própria propriedade *display*. O posicionamento e espaçamento de elementos podem ser facilmente ajustados usando propriedades auxiliares, como *justify-content* e *flex-direction*, entre outras.
 
 - [Exemplos de display flex](https://imasters.com.br/css/adeus-flexbox-bem-vindo-css-grid-layout)
 
-Position
+### Position
+- **static**: valor default de todo elemento HTML, ou seja, ele vai seguir o fluxo comum da sua página.
 
-- Static: valor default de todo elemento HTML, ou seja, ele vai seguir o fluxo comum da sua página.
+- **relative**: A posição do elemento é calculada com base em sua posição inicial somada aos valores das propriedades *top*, *bottom*, *left* e *right*.
 
-- Relative: A posição do elemento é relativa ao elemento anterior. Ou seja, na posição inicial do elemento, inserido no próprio html, é possível alterar sua posição com as propriedades Top, Bottom, Left e Right...e sua base inicial é a sua primeira posição.
+- **absolute**: A posição do elemento é relativa ao viewport, ou ao elemento pai quando este tem um *position* que não seja *static*. Esta posição é influenciada pela rolagem da página.
 
-- Absolute: A posição do elemento é relativa ao viewport, ou ao elemento pai quando este tem um position definido. Esta posição é influenciada pela rolagem da página.
-
-- Fixed: A posição do elemento é relativa ao viewport igual ao absolute porém não é influenciada pela rolagem da página. Um exemplo bom, é de algumas <nav> que são utilizadas a posição fixed para se manter no topo da tela e o restante do site rodar por trás.
-
-> Para um layout responsivo usar % para determinar o posicionamento. Se for um layout estático, use PX mesmo. Lembrando que % é um unidade de medida dinâmica, ou seja, o elemento com posicionamento por porcentagem vai variar de acordo com seu elemento pai.
+- **fixed**: A posição do elemento é relativa ao viewport assim como no *absolute*, porém esta não é influenciada pela rolagem da página. Um bom exemplo bom é um cabeçalho que fica fixo no topo da página e acompanha o scroll realizado pelo usuário.
 
 - [exemplo de position] (http://pt-br.learnlayout.com/position.html)
 
-Exemplo:
+### MediaQuery
+
+São expressões de CSS utilizadas para aplicar propriedades nos elementos de acordo à características do cliente, como por exemplo a largura ou resolução de sua tela.
+
+Para aplicar essas propriedades são feitas consultas, ou *queries*, que caso tenham retorno positivo, aplicam um bloco de seletores e propriedades.
 
 ```
-<div id="elemento_pai">
-   <div id="elemento_filho"></div>
-</div>
-
-```
-#elemento_pai {
-    width:100%; height:100%
-    }
-#elemento_filho {
-    width:50%; height:100%; margin-left:50%
-    }
-```
-
-MediaQuery
-
-São expressões de CSS utilizadas para mudar o layout em diferentes dispositivos sem mudar o conteúdo. E como usar em seu CSS? Em resumo os atributos seriam como um tutorial do que você precisa que aconteça em um determinado dispositivo.
-
-Um bom conceito para que seja compreendido é associar como se você perguntasse para o browser: “ O seu dispositivo é uma tela e a largura máxima é 320 pixels?”. Se a resposta for sim o navegador aplica o que consta no seu arquivo css.
-
-320 pixels – Smartphones no modo retrato.
-480 pixels – Smartphones no modo paisagem.
-600 pixels – Tablets pequenos. Ex: Amazon Kindle (600×800)
-768 pixels – Tablets maiores em modo retrato. Ex: iPad (768×1024)
-1024 pixels – Tablets maiores em modo paisagem, monitores antigos.
-1200 pixels – Monitores
-
-```
-./* regra aplicada em todo código */
-body { background: blue; }
-
-/* aplica somente a partir de 320px */
-@media screen and (min-width: 320px) {
-body { font-size: 80%; }
+/* regra aplicada em todo código */
+body {
+  background: blue;
 }
 
-/* aplica somente a partir de 480px em landscape */
-@media screen and (min-width: 480px) and (orientation: landscape) {
-nav { float: left; }
+/* regra aplicada para dispositivos com largura superior a 320px */
+@media(min-width: 320px) {
+  body {
+    font-size: 80%;
+  }
+}
+
+/* regra aplicada para dispositivos com largura superior a 480px e orientação paisagem */
+@media(min-width: 480px) and (orientation: landscape) {
+  nav {
+    float: left;
+  }
 }
 ```
 
-####Exemplos para aula
+| Largura (px) | Descrição |
+|------------|------------------------------|
+| 320 | Smartphones no modo retrato. |
+| 480 | Smartphones no modo paisagem. |
+| 600 | Tablets pequenos. Ex: Amazon Kindle (600×800). |
+| 768 | Tablets maiores em modo retrato. Ex: iPad (768×1024). |
+| 1024 | Tablets maiores em modo paisagem, monitores antigos. |
+| 1200 | Monitores |
 
-Como montar um menu de navegação:
+###Exemplos para aula
+
+#### Como montar um menu de navegação:
 
 Estrutura HTML
 ```
@@ -403,10 +382,10 @@ Estrutura HTML
          <h1>Título da Página</h1>
 </body>
 </html>
-
 ```
-Estrutura CSS
 
+Estrutura CSS
+```
 #menu ul li{
     display: inline;
 }
@@ -419,8 +398,6 @@ Estrutura CSS
     margin-left: 10px;
 }
 ```
-
-       
 
 ## Publicação (45min)
 
@@ -468,4 +445,4 @@ Após a instalação do NodeJS, basta abrir o terminal e usar o comando:
 8- *Configure as a single-page app (rewrite all urls to /index.html)?* Digite `n` e pressione enter
 9- O menu interativo irá encerrar. Digite o comando `firebase deploy` e pressione enter
 
-No final irá aparecer o 2 links de acesso, onde o segundo será possível ver seu site online.
+No final irão aparecer o 2 links de acesso, onde o segundo será possível ver seu site online.
