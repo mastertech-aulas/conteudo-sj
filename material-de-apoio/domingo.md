@@ -335,65 +335,15 @@ Para resolver o problema de manter duas bases de código, surgiram frameworks qu
 **Desvantagens:** menor flexibilidade para uso de recursos nativos, ainda é necessário fazer ajustes específicos por plataforma
 
 ### Opção 3: Aplicativos Híbridos
-Essa abordagem emprega o uso de tecnologias web para criar a interface do aplicativo. Ou seja, o aplicativo consiste em um "site" que é instalado no celular através de uma camada de código nativa. A parte nativa é específica para cada plataforma
+Essa abordagem emprega o uso de tecnologias web para criar a interface do aplicativo, ou  seja, o aplicativo em realidade é um "site" que é instalado no celular através de uma camada de código nativa. Para usar recursos nativos do celular (GPS, acelerômetro, giroscópio, push notification), o Javascript tem acesso a uma interface de programação que faz a ponte entre o código web e o nativo. O Cordova e o Ionic são os exemplos mais famosos de plataformas para desenvolvimento de apps híbridos.
 
+**Vantagens:** é uma das formas mais rápidas e baratas para desenvolvimento de apps, um programador web pode reutilizar seus conhecimentos de HTML, CSS e JS
+**Desvantagens:** menor performance e maior quantidade de limitações em relação a apps puramente nativos
 
 ### Opção 4: PWA
+O PWA (Progressive Web Apps) é uma opção relativamente nova para o desenvolvimento de aplicações mobile. Ela consiste em uma aplicação puramente web que pode ser instalada no celular diretamente do browser, mantendo funcionalidades offline e com um ícone para acesso disponível na gaveta de aplicativos. As novas versões dos sistemas iOS e Android suportam os PWAs, o que tem aumentado significativamente sua popularidade.
 
+**Vantagens:** é uma das formas mais rápidas e baratas para desenvolvimento de apps, um programador web pode reutilizar seus conhecimentos de HTML, CSS e JS
+**Desvantagens:** menor performance e maior quantidade de limitações em relação a apps puramente nativos
 
-#### Introdução
-
-#### O que são PWAs
-
-#### Como criar um PWA
-
-PWA é um conjunto de técnicas para desenvolver aplicações web, adicionando funcionalidades que antes só eram possíveis em apps nativos. Pode ser para qualquer usuário, responsivo, funciona mesmo no offline, tem aparência de um app nativo, aceita apenas https e tem fácil instalação.
-
-Além disso, vale ressaltar a diminuição da jornada do usuário:
-
-Com um app normal
-1- Buscar o app
-2- Instalar
-3- Abrir
-4- Cadastrar
-5- Interagir
-
-Há dados que comprovam uma perda de 20% dos usuários para cada uma dessas etapas. O mesmo não acontece na web. Basta acessarmos o link e em poucos segundos depois já estamos com o web app.
-
-Exemplos de quem já usa:
-https://code.nasa.gov/#/
-Telegram
-Twitter Lite
-Uber
-Google Maps
-
-> Quer identificar um PWA? é utilizar o Lighthouse que mede até a qualidade deste web app.
-Trata-se de uma ferramenta do Google, que faz diversos testes com a página, como testes offline ou simulando uma internet ruim, assim como diferentes resoluções, contrastes, etc.
-
-### Como fazer?
-O projeto já foi inserido dentro do Firebase, a ideia é que todos os projetos tenham um link semelhante a "meu-projeto.firebaseapp.com".
-
-Além dele, é preciso criar um arquivo manifest.json e service worker.
-
-###O que é um Service Worker?
-é um script que seu navegador executa em segundo plano, separado da página da Web, possibilitando recursos que não precisam de uma página da Web ou de interação do usuário.
-
-Em resumo, o SW te dá a opção de manipular as requisições que são feitas por sua aplicação e com isso é possível o funcionamento offline.
-
-Para acontecer isso, é necessário inserir no código html, um <script> com estas informações:
-
-```
-    <script>
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function() {
-                console.log('Service Worker Registered');
-          });
-      }
-    </script>
-```
-
-Para criar seu arquivo manifest.json, existe este site onde é possível inserir todas as informações e ícones e ele gera automaticamente um código a ser inserido no arquivo.
-https://app-manifest.firebaseapp.com/
-
-> Para saber se você está no caminho certo na construção do seu Progressive Web App é usar alguma ferramenta de inspeção como o Lighthouse já dito acima.
+> Quer identificar um PWA? Basta utilizar o Lighthouse. Trata-se de uma extensão do Google Chrome produzida pelo próprio Google que faz diversos testes com a página, como testes de cache offline ou com uma conexão de internet ruim, responsividade em diferentes resoluções, tempo de carregamento, meta informações, etc.
