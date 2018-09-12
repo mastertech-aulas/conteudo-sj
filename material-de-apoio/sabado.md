@@ -418,29 +418,43 @@ macos: procure por *terminal* no Spotlight
 ### Firebase
 O Firebase é um serviço cloud do Google que permite, entre outras coisas, a hospedagem gratuita de sites. Vamos utilizá-lo para publicar os trabalhos que realizarmos no curso. Para isso, precisamos de três coisas: uma conta no Google, um projeto criado no Firebase e o programa de terminal do Firebase instalado em nosso computador (Firebase CLI).
 
-#### #1 Como instalar o Firebase CLI
+#### 1) Como instalar o Firebase CLI
 O pré-requisito para instalar o Firebase CLI é possuir o NodeJS instalado no computador. O NodeJS é um ambiente de execução de Javascript para terminal, e pode ser baixado através do site [https://nodejs.org].
 
 Após a instalação do NodeJS, basta abrir o terminal e usar o comando:
+
 `npm install -g firebase-cli` (windows)
+
 `sudo npm install -g firebase-cli` (macos/linux)
 
-#### #2 Como criar um novo projeto no Firebase
+#### 2) Como criar um novo projeto no Firebase
 1- Acessar o Firebase através de uma conta do Google em [https://firebase.google.com/]
+
 2- Clicar em *Go to Console*
+
 3- Clicar em *Add Project*
+
 4- Digitar o nome para seu projeto e aceitar os termos de serviço
+
 5- Clicar em *Create Project*
 
-#### #3 Como publicar um site no Firebase
+#### 3) Como publicar um site no Firebase
 1- Abrir o terminal
+
 2- Copie o caminho da pasta através do gerenciador de arquivos
+
 3- Digite `cd caminho/para/pasta` no terminal e pressione enter
+
 4- Digite `firebase init` e pressione enter
+
 5- Na lista apresentada, escolha a opção *Hosting* com a barra de espaços e pressione enter
+
 6- Selecione o projeto que você criou anteriormente Firebase e pressione enter
+
 7- *What do you want to use as your public directory?* Digite `.` e pressione enter
+
 8- *Configure as a single-page app (rewrite all urls to /index.html)?* Digite `n` e pressione enter
+
 9- O menu interativo irá encerrar. Digite o comando `firebase deploy` e pressione enter
 
 No final irão aparecer o 2 links de acesso, onde o segundo será possível ver seu site online.
