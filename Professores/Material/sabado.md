@@ -6,9 +6,7 @@
 - Capacidade de criar um site simples e publicá-lo
 - Direcionar o aluno para continuar os estudos por conta
 
-## Design Thinking (60min)
-
-## Introdução à Web (30min)
+## Introdução à Web
 
 ### Redes e Protocolos
 O que acontece quando acessamos o Google? Como é a interação entre os diversos sistemas desde o momento em que digitamos a URL no navegador até o momento que temos a página exibida em nossa tela?
@@ -37,7 +35,7 @@ Se o servidor precisa executar algum código antes de entregar ou montar os arqu
 ### Semântica em código?
 Semântica dentro de HTML é a prática de dar significado ao conteúdo da página estruturando a mesma usando os elementos adequados, igual feito no português, inglês.... Código semântico descreve a importância do conteúdo de uma página, independentemente do estilo ou aparência do que conteúdo. Existem várias vantagens de se utilizar elementos semânticos, permitindo que computadores, leitores de tela, motores de busca e outros dispositivos de leitura compreendam adequadamente o conteúdo em uma página web.
 
-## HTML (30min)
+## HTML
 
 O HTML é uma linguagem de marcação estruturada por *tags*. Cada tag de html corresponde a um elemento da página, com suas características e conteúdo.
 
@@ -131,7 +129,7 @@ Existem tags cujas propriedades são suficientes para definir e construir a estr
 
 O HTML é responsável somente pela criação dos itens na página. A formatação e o posicionamento desses itens é realizada através do *CSS*.
 
-## CSS I - Formatação geral (45min)
+## CSS I - Formatação geral
 
 A demanda por maiores recursos visuais nas páginas adicionou ao HTML tags de formatação e de posicionamento, tornando a especificação muito complexa e difícil de manter. O CSS foi criado para substituir essas tags. A utilização como padrão e as atualizações trouxeram uma gama enorme de opções de estilzação de elementos usando a linguagem.
 
@@ -399,7 +397,7 @@ Estrutura CSS
 }
 ```
 
-## Publicação (45min)
+## Publicação
 
 ### Noções de Terminal
 O terminal nada mais é que outra forma de interagir com o computador. Estamos habituados a utilizar uma interface gráfica composta de janelas e ícones para realizar as tarefas que necessitamos no dia-a-dia, como abrir um editor de texto, salvar um arquivo ou acessar uma página da internet.

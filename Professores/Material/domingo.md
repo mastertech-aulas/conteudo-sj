@@ -68,7 +68,7 @@ No processo de compilação, o código-fonte é convertido um arquivo executáve
 
 No processo de interpretação, o código-fonte é convertido em instruções para o computador em tempo real. Isso permite um maior dinamismo para o programador enquanto ele trabalha, visto que ele pode ver de forma imediata as mudanças que ele faz no programa. Por outro lado, a velocidade de execução do programa tende a ser menor, visto que a cada execução é necessário fazer a conversão do código novamente para instruções de máquina. Vale notar que não existe um arquivo executável, então o programa é distribuído no formato de código-fonte.
 
-## Javascript (1 hora)
+## Javascript
 
 O Javascript é a linguagem padrão para as páginas da web. É com ele que são implementados desde sites institucionais até sistemas complexos como o Google Drive. O browser possui dentro de si um interpretador da linguagem, que é responsável por executar os scripts presentes nas páginas.
 
@@ -237,6 +237,31 @@ Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`
 
 > TODO: ADICIONAR EX3
 
+## Aplicativos Mobile
+
+### Opção 1: Aplicativos Nativos
+Essa é a forma padrão para programar uma app mobile. Como as plataformas possuem kits de desenvolvimento diferentes, é necessário criar duas versões do aplicativo, uma para Android e outra para iOS.
+
+**Vantagens:** maior performance e flexibilidade de uso de recursos plataforma.
+**Desvantagens:** maior custo e tempo de desenvolvimento, manutenção de duas bases de código.
+
+### Opção 2: Aplicativos Nativos com base de código compartilhada
+Para resolver o problema de manter duas bases de código, surgiram frameworks que unificam o fluxo de desenvolvimento e, a partir de um único código fonte, compila-se duas versões do aplicativo. O Xamarin da Microsoft e o React Native do Facebook são exemplos dessa abordagem.
+
+**Vantagens:** maior agilidade no desenvolvimento e alteração de apps
+**Desvantagens:** menor flexibilidade para uso de recursos nativos, ainda é necessário fazer ajustes específicos por plataforma
+
+### Opção 3: Aplicativos Híbridos
+Essa abordagem emprega o uso de tecnologias web para criar a interface do aplicativo. Ou seja, o aplicativo consiste em um "site" que é instalado no celular através de uma camada de código nativa. A parte nativa é específica para cada plataforma
+
+
+### Opção 4: PWA
+
+
+### Introdução
+
+### O que são PWAs
+
 #### Como criar um PWA
 
 PWA é um conjunto de técnicas para desenvolver aplicações web, adicionando funcionalidades que antes só eram possíveis em apps nativos. Pode ser para qualquer usuário, responsivo, funciona mesmo no offline, tem aparência de um app nativo, aceita apenas https e tem fácil instalação.
@@ -262,7 +287,7 @@ Google Maps
 > Quer identificar um PWA? é utilizar o Lighthouse que mede até a qualidade deste web app.
 Trata-se de uma ferramenta do Google, que faz diversos testes com a página, como testes offline ou simulando uma internet ruim, assim como diferentes resoluções, contrastes, etc.
 
-###Como fazer?
+### Como fazer?
 O projeto já foi inserido dentro do Firebase, a ideia é que todos os projetos tenham um link semelhante a "meu-projeto.firebaseapp.com".
 
 Além dele, é preciso criar um arquivo manifest.json e service worker.
@@ -289,8 +314,3 @@ Para criar seu arquivo manifest.json, existe este site onde é possível inserir
 https://app-manifest.firebaseapp.com/
 
 > Para saber se você está no caminho certo na construção do seu Progressive Web App é usar alguma ferramenta de inspeção como o Lighthouse já dito acima.
-
-
-
-
-
