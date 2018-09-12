@@ -161,8 +161,6 @@ Os scripts de uma página são geralmente escritos em arquivos separados com a e
 
 > Utilize esse momento para propor alguns exercícios simples com operações. Para isso, faça uso das funções *alert* para exibir os valores e *prompt* para obter valores do usuário.
 
-> TODO: ADICIONAR EX1
-
 ### Conversão de valores
 Muitas vezes é necessário converter o tipo de uma variável para utilizá-la de forma correta no contexto do que estamos programando. A função *prompt*, por exemplo, sempre retorna uma variável do tipo **string**, mesmo que o usuário tenha inserido um valor numérico. A tentativa de somar variáveis que foram obtidas pelo método prompt vai resultar na concatenação dos valores.
 
@@ -192,8 +190,6 @@ alert(idadeRelativa); //o resultado é 31
 ```
 
 > Note que ao tentar converter um valor não numérico em Number, o resultado será *NaN*, que significa *Not a Number*. Podemos verificar se uma variável é NaN usando a função **isNaN**
-
-> TODO: ADICIONAR EX2
 
 ### Condicionais
 
@@ -235,7 +231,94 @@ Toda operação lógica resulta em um valor booleano, ou seja, `true` ou `false`
 | >= | maior ou igual |
 | <= | menor ou igual |
 
-> TODO: ADICIONAR EX3
+## Javascript - DOM
+
+O DOM (Document Object Model) é uma interface de programação que representa os elementos de uma página como nodos em uma estrutura de árvore.
+
+```
+html
+|
+--- head
+|
+--- body
+   |
+   --- header
+   |  |
+   |  --- h1
+   |
+   --- section
+   |  |
+   |  --- div
+   |     |
+   |     --- p
+   |
+   --- footer
+```
+
+Cada um desses nodos é um objeto de Javascript que contém todas as propriedades possíveis para este elemento, como suas propriedades de CSS, o texto contido dentro da tag, seu id, etc.
+
+### Manipulando o DOM com Javascript
+
+A forma mais simples de acessar um nodo no Javascript é através de uma função disponível dentro do objeto global **document** chamada de **querySelector**:
+
+> O uso dos métodos getElementById, getElementsByClassName e getElementsByTagName é desencorajado atualmente, e eles são mantidos apenas por propósito de compatibilidade
+
+```
+let meuBotao = document.querySelector('button');
+```
+
+Nesse exemplo, será selecionado o primeiro elemento que possua a tag button na página, visto que a função querySelector seleciona um único elemento, ignorando os elementos subsequentes.
+
+> A função **querySelectorAll** retorna um vetor de elementos baseado no seletor usado. No entanto, não aconselhamos que ela seja mostrada nesse momento da aula para mantê-la simples.
+
+Depois de selecionado, a referência para o elemento ficou contida na variável **meuBotao**. Para alterar alguma de suas propriedades dinamicamente, podemos usar:
+
+```
+meuBotao.innerHTML = 'Novo texto para o botão';
+meuBotao.style.color = 'white';
+```
+
+Note que as propriedades de CSS são representadas como *string* por uma necessidade do Javascript. No exemplo, a palavra 'white' seria interpretada como uma variável com o mesmo nome caso ela não fosse escrita entre aspas.
+
+Uma limitacao do Javascript é que as variáveis não podem conter hífens em seu nome. Portanto, diversas propriedades de CSS tiveram seu nome alterado para o padrão *camel-case* quando acessadas pelo Javascript:
+
+```
+meuBotao.style.backgroundColor = 'white';
+meuBotao.style.fontWeight = 'bold';
+meuBotao.style.fontSize = '30px';
+```
+
+### Eventos do browser
+
+Apesar de eficazes, os exemplos anteriores causam a alteração dos elementos da página imediatamente após seu carregamento. Isso causa no usuário a impressão de que os elementos foram definidos da forma em que eles foram apresentados, removendo a necessidade de fazer sua manipulação via Javascript.
+
+No entanto, quando atribuímos as alterações de um elemento à um evento do browser, como um click ou um mouseover por exemplo, podemos entender a verdadeira necessidade de manipular elementos da página com o Javascript.
+
+```
+let meuBotao = document.querySelector('button');
+
+function alterarCorDoBotao(){
+    meuBotao.style.backgroundColor = 'blue';
+}
+
+meuBotao.onclick = alterarCorDoBotao;
+```
+
+Note que **não** devemos utilizar os parênteses no final do nome da função no momento de atribuí-la ao evento. Os parênteses causam a execução imediata da função, e ao evento é atribuído apenas o valor de retorno da função (que não existe no exemplo acima).
+
+> Recomendamos que os eventos sejam atribuídos via Javascript ao invés de dentro do HTML visto que os alunos tendem a esquecer de atualizar o código de HTML, já que ele tem que trabalhar com dois arquivos diferentes para finalizar uma funcionalidade.
+
+Esses são alguns exemplos de eventos que podemos utilizar:
+
+| Evento | Descrição |
+| ------ | --------- |
+| onclick | clique do mouse |
+| onmouseenter | quando o ponteiro entra no elemento |
+| onmousemove | quando o ponteiro se movimenta dentro do elemento |
+| onmouseleave | quando o ponteiro sai do elemento |
+| onkeydown | quando o elemento tem foco e alguma tecla é pressionada|
+| onkeydown | o elemento tem foco e quando alguma tecla é solta após ser pressionada |
+
 
 ## Aplicativos Mobile
 
@@ -258,9 +341,9 @@ Essa abordagem emprega o uso de tecnologias web para criar a interface do aplica
 ### Opção 4: PWA
 
 
-### Introdução
+#### Introdução
 
-### O que são PWAs
+#### O que são PWAs
 
 #### Como criar um PWA
 
